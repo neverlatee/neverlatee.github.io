@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="聂小涛的博客">
+    <meta name="keyword" content="腾讯">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        计算广告学基本概念 - AirCloud的博客 | AirCloud&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> sometimes code， sometimes design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>飞嗔梦：</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#广告主"><span class="toc-text">广告主</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#预算与出价"><span class="toc-text">预算与出价</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#受众与定向"><span class="toc-text">受众与定向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#投放和展示"><span class="toc-text">投放和展示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#点击与转化"><span class="toc-text">点击与转化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ROI与转化成本"><span class="toc-text">ROI与转化成本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#广告收入-cpm"><span class="toc-text">广告收入 cpm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#品牌广告"><span class="toc-text">品牌广告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#效果广告"><span class="toc-text">效果广告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#点击出价-CPC"><span class="toc-text">点击出价(CPC)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#竞价方式："><span class="toc-text">竞价方式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#广告模型-ctr-amp-cvr预估"><span class="toc-text">广告模型-ctr&amp;cvr预估</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#竞价广告-广告定价"><span class="toc-text">竞价广告-广告定价</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用户诉求"><span class="toc-text">用户诉求</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> sometimes code， sometimes design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        计算广告学基本概念
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-03-24 21:43:35</span></span>
+        
+        
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <h4 id="广告主"><a href="#广告主" class="headerlink" title="广告主"></a>广告主</h4><pre><code>&gt;品牌广告主
+&gt;效果广告主
+</code></pre><h4 id="预算与出价"><a href="#预算与出价" class="headerlink" title="预算与出价"></a>预算与出价</h4><blockquote>
+<p>对特定目标作出价：投放、展示、点击、转化 比如 5元钱一次应用下载、</p>
+</blockquote>
+<h4 id="受众与定向"><a href="#受众与定向" class="headerlink" title="受众与定向"></a>受众与定向</h4><blockquote>
+<p>平台挖掘用户特征并打标签</p>
+</blockquote>
+<h4 id="投放和展示"><a href="#投放和展示" class="headerlink" title="投放和展示"></a>投放和展示</h4><blockquote>
+<p>send show</p>
+</blockquote>
+<h4 id="点击与转化"><a href="#点击与转化" class="headerlink" title="点击与转化"></a>点击与转化</h4><blockquote>
+<p>点击率（ctr） Click Through Rate, CTR<br>转化率（cvr） ConVersion Rate, CVR</p>
+</blockquote>
+<h4 id="ROI与转化成本"><a href="#ROI与转化成本" class="headerlink" title="ROI与转化成本"></a>ROI与转化成本</h4><blockquote>
+<p>ROI 收益率 Return On Investment：产出投入比</p>
+</blockquote>
+<h4 id="广告收入-cpm"><a href="#广告收入-cpm" class="headerlink" title="广告收入 cpm"></a>广告收入 cpm</h4><p>CPM（CostPerMille，cpm）：平均投放1k次平台获取收入</p>
+<h4 id="品牌广告"><a href="#品牌广告" class="headerlink" title="品牌广告"></a>品牌广告</h4><p>   定价（CPT）costPerTime ：包断时段内整个位置，高溢价<br>   溢价（GD）GuranteedDelivery </p>
+<h4 id="效果广告"><a href="#效果广告" class="headerlink" title="效果广告"></a>效果广告</h4><blockquote>
+<p>也称竞价（RTB）广告</p>
+</blockquote>
+<h4 id="点击出价-CPC"><a href="#点击出价-CPC" class="headerlink" title="点击出价(CPC)"></a>点击出价(CPC)</h4><p>Cost Per Click 预估广告点击率</p>
+<h4 id="竞价方式："><a href="#竞价方式：" class="headerlink" title="竞价方式："></a>竞价方式：</h4><p>cpa/oCPC/oCPM</p>
+<h4 id="广告模型-ctr-amp-cvr预估"><a href="#广告模型-ctr-amp-cvr预估" class="headerlink" title="广告模型-ctr&amp;cvr预估"></a>广告模型-ctr&amp;cvr预估</h4><h4 id="竞价广告-广告定价"><a href="#竞价广告-广告定价" class="headerlink" title="竞价广告-广告定价"></a>竞价广告-广告定价</h4><p>广义二价<br>VCG Auction<br>底价（保留价）</p>
+<h4 id="用户诉求"><a href="#用户诉求" class="headerlink" title="用户诉求"></a>用户诉求</h4>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/iconie_alloy">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/ai-er-lan-xue-da">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/3286578617">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/xiaotao.nie.5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/AirCloud">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.linkedin.com/in/小涛-聂-80964aba">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.10000h.top">10000H</a></span>
+        <span>/</span>
+        
+        <span><a href="https://niexiaotao.com">Xiaotao&#39;s Page</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://airclouds-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
+</html>
