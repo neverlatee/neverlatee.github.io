@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#消费拉取模式"><span class="toc-text">消费拉取模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#拉模式"><span class="toc-text">拉模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#推模式"><span class="toc-text">推模式</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#消费方式"><span class="toc-text">消费方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#广播消费"><span class="toc-text">广播消费</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集群消费"><span class="toc-text">集群消费</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#消费队列负载"><span class="toc-text">消费队列负载</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消息确认（ACK）"><span class="toc-text">消息确认（ACK）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定时消息的消费"><span class="toc-text">定时消息的消费</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#批量消费"><span class="toc-text">批量消费</span></a></li>
 </div>
     
 </div>
@@ -131,7 +131,12 @@
 
     </div>
     <div class="post-content ">
-        
+        <p>本文采用先提出基本概念，然后通过问答的形式来对RocketMQ消费的设计进行解释</p>
+<h2 id="消费拉取模式"><a href="#消费拉取模式" class="headerlink" title="消费拉取模式"></a>消费拉取模式</h2><p>rocketMq有两种消费模式，一种是定时拉消息，另一种是broker推，推消息也是建立在拉的基础上的，然后有</p>
+<h4 id="拉模式"><a href="#拉模式" class="headerlink" title="拉模式"></a>拉模式</h4><h4 id="推模式"><a href="#推模式" class="headerlink" title="推模式"></a>推模式</h4><p>   推模式实质也是拉模式。他是怎么在拉的基础上实现推的呢？<br>   如果单纯的推可能造成消费者消费不了从而压垮消费者，所以有了流控</p>
+<h2 id="消费方式"><a href="#消费方式" class="headerlink" title="消费方式"></a>消费方式</h2><p>有两种消费方式，不同点在于消费进度的存储地方，广播消费存在本地，集群消费存在broker侧，因为不同的consumer要共享消费进度，确保一个消息在一个集群中只能被消费一次。可是如果新增消费者或者有个消费者丢失了，rocketMq是怎么做的呢，后面会详细法分析消费队列的负载。消费队列和消费者是一个怎样的关系呢？</p>
+<h3 id="广播消费"><a href="#广播消费" class="headerlink" title="广播消费"></a>广播消费</h3><h3 id="集群消费"><a href="#集群消费" class="headerlink" title="集群消费"></a>集群消费</h3><p>  一个队列同时间只能有一个消费者消费，但是一个消费者可以消费多个消息队列。</p>
+<h4 id="消费队列负载"><a href="#消费队列负载" class="headerlink" title="消费队列负载"></a>消费队列负载</h4><h2 id="消息确认（ACK）"><a href="#消息确认（ACK）" class="headerlink" title="消息确认（ACK）"></a>消息确认（ACK）</h2><h2 id="定时消息的消费"><a href="#定时消息的消费" class="headerlink" title="定时消息的消费"></a>定时消息的消费</h2><h2 id="批量消费"><a href="#批量消费" class="headerlink" title="批量消费"></a>批量消费</h2>
         
         <br>
         <div id="comment-container">
