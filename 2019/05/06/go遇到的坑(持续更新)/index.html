@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="飞嗔梦的博客">
+    <meta name="keyword" content="netease,bytedance">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        go遇到的坑(持续更新) - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 在路上 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>飞嗔梦：</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包变量引用"><span class="toc-text">闭包变量引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传值还是传引用"><span class="toc-text">传值还是传引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#panic-assignment-to-entry-in-nil-map"><span class="toc-text">panic: assignment to entry in nil map</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 在路上 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        go遇到的坑(持续更新)
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-05-06 17:48:23</span></span>
+        
+        
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <h3 id="闭包变量引用"><a href="#闭包变量引用" class="headerlink" title="闭包变量引用"></a>闭包变量引用</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">funcs :=<span class="built_in">make</span>([]<span class="function"><span class="keyword">func</span><span class="params">()</span>,0)</span></span><br><span class="line"><span class="function"><span class="title">for</span> <span class="title">i</span>:=0;<span class="title">i</span>&lt;3;<span class="title">i</span>++</span>&#123;</span><br><span class="line"> funcs=<span class="built_in">append</span>(funcs, <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">     fmt.Println(i,&amp;i)</span><br><span class="line"> &#125; )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _,funcOne :=<span class="keyword">range</span> funcs&#123;</span><br><span class="line"> funcOne()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出<br><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span><span class="number">0</span>xc000016070</span><br><span class="line"><span class="symbol">3 </span><span class="number">0</span>xc000016070</span><br><span class="line"><span class="symbol">3 </span><span class="number">0</span>xc000016070</span><br></pre></td></tr></table></figure></p>
+<p>原因是在第一个for循环里只是构建了匿名函数列表并未执行，真正执行的时候打印i值，i是个全局变量，在执行时funcs数组里的函数指向的是同一个地址上的值</p>
+<p>正确的方法是：使用临时变量，这样每个函数绑定的都是临时变量<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">funcs :=<span class="built_in">make</span>([]<span class="function"><span class="keyword">func</span><span class="params">()</span>,0)</span></span><br><span class="line"><span class="function"><span class="title">for</span> <span class="title">i</span>:=0;<span class="title">i</span>&lt;3;<span class="title">i</span>++</span>&#123;</span><br><span class="line"><span class="comment">//使用临时变量</span></span><br><span class="line">tmp:=i</span><br><span class="line"> <span class="comment">//将多个匿名函数添加到列表</span></span><br><span class="line"> funcs=<span class="built_in">append</span>(funcs, <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">     fmt.Println(tmp,&amp;tmp)</span><br><span class="line"> &#125; )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//执行匿名函数</span></span><br><span class="line"><span class="keyword">for</span> _,funcOne :=<span class="keyword">range</span> funcs&#123;</span><br><span class="line"> funcOne()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">0 </span><span class="number">0</span>xc000084050</span><br><span class="line"><span class="symbol">1 </span><span class="number">0</span>xc000084058</span><br><span class="line"><span class="symbol">2 </span><span class="number">0</span>xc000084060</span><br></pre></td></tr></table></figure></p>
+<h3 id="传值还是传引用"><a href="#传值还是传引用" class="headerlink" title="传值还是传引用"></a>传值还是传引用</h3><blockquote>
+<p>map、slice、chan传的是引用<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mapB = <span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>:<span class="number">1</span>,<span class="number">2</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">var</span> mapA=mapB</span><br><span class="line">mapC:=mapB</span><br><span class="line">mapB[<span class="number">3</span>]=<span class="number">3</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>mapA mapB mapC是一样的</p>
+<blockquote>
+<p>数组和基本类型传的是值<br><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="built_in">n</span> [<span class="number">10</span>]<span class="built_in">int</span></span><br><span class="line">for i <span class="symbol">:</span>= <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">    <span class="built_in">n</span>[i] = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="symbol">m:</span>=<span class="built_in">n</span></span><br><span class="line"><span class="built_in">n</span>[<span class="number">2</span>]=<span class="number">10</span></span><br><span class="line">fmt.Println(m)</span><br><span class="line">fmt.Println(<span class="built_in">n</span>)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="panic-assignment-to-entry-in-nil-map"><a href="#panic-assignment-to-entry-in-nil-map" class="headerlink" title="panic: assignment to entry in nil map"></a>panic: assignment to entry in nil map</h3><p>原因是map没有初始化，在赋值时会报这个错,错误示例如下，所以map最好使用make(map[int64]int64)<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tmpMap <span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">int64</span></span><br><span class="line">tmpMap[<span class="number">10</span>]=<span class="number">10</span></span><br></pre></td></tr></table></figure></p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/iconie_alloy">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/ai-er-lan-xue-da">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/3286578617">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/xiaotao.nie.5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/AirCloud">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://airclouds-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
+</html>
